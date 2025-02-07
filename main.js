@@ -104,35 +104,30 @@ console.log(GreetingsArrow());
 
 
 //////// PART 5 - Array methods////////
+
 function printFruit() {
+  let resultElement = document.getElementById("result5");
+  resultElement.textContent = ""; // Clear previous output
 
-    let resultElement = document.getElementById("result5");
+  // Sample fruit array (make sure this exists in your JS)
+  let fruits = ["apple", "banana", "cherry", "blueberry", "blackberry", "grape"];
 
-    resultElement.textContent = "";
+  // Filter fruits that start with "b" and map to create <p> elements
+  let fruitElements = fruits
+      .filter(fruit => fruit.toLowerCase().startsWith("b"))
+      .map(fruit => {
+          let p = document.createElement("p");
+          p.textContent = fruit;
+          return p;
+      });
 
-    // Loop through the fruits array
-   // for (let i = 0; i < fruits.length; i++) {
- 
-        // Create a list item for each fruit
-      //  let p = document.createElement("p");
-       // p.textContent = fruits[i];
+  // Append elements to result5
+  fruitElements.forEach(p => resultElement.appendChild(p));
+}
 
-        // Append the list item to the ordered list
-        //resultElement.appendChild(p);
-    //}
-
-    
-
- }
- 
- 
- function clearText() {
-    let resultElement = document.getElementById("result5");
-    resultElement.textContent = "";
- }
-
-
-
+function clearText() {
+  document.getElementById("result5").textContent = "";
+}
 
 
  //////// PART6 - Destructuring////////
@@ -180,7 +175,7 @@ const baseProduct = {
   };
   
   // Merge basePrduct and Seasonal using spread operator and add lastUpdated property with a value of '2023-12-31'
-  ///UPDATE THIS CODE
+
   const currentProduct = { 
     ...baseProduct, 
     ...holidayPromo, 
@@ -191,7 +186,7 @@ const baseProduct = {
   
   //Check the result object in the console:
   console.log(currentProduct);
-  //UPDATE THIS OUTPUT
+ 
   document.getElementById("result7").textContent = `The ${currentProduct.name} are on sale for ${currentProduct.price} as of ${currentProduct.lastUpdated}`;; 
 
   console.log(currentProduct);
@@ -227,4 +222,3 @@ const baseProduct = {
       console.log("Validation attempt completed.");
   }
 }
-
